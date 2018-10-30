@@ -20,6 +20,7 @@ func main() {
 	e.GET("/", hello)
 
 	// Start server
+	viper.SetDefault("PORT", ":5000")
 	viper.AutomaticEnv()
 	port := viper.GetString("PORT")
 	e.Logger.Fatal(e.Start(port))
