@@ -19,11 +19,13 @@ func main() {
 	// Routes
 	e.GET("/", hello)
 
-	// Start server
-	viper.SetDefault("PORT", ":5000")
+	// Load configuration
+	viper.SetDefault("PORT", 5000)
 	viper.AutomaticEnv()
-	port := viper.GetString("PORT")
-	e.Logger.Fatal(e.Start(port))
+
+	// Start server
+	address := ":" + viper.GetString("PORT")
+	e.Logger.Fatal(e.Start(address))
 }
 
 // Handler
