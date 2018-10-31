@@ -1,10 +1,17 @@
+<p align="center">
+  <img src="https://golangtraining-in-web.appspot.com/img/cowboy-color.png" height="130px"/>
+  <br><br>
+</p>
+
 # amigo
 
-A simple dockerized REST API starter for Golang.
+A simple dockerized API starter for Golang.
+
+Personal experimental playground to explore the Golang ecosystem.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+<!-- These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system. -->
 
 ### Prerequisites
 
