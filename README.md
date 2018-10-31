@@ -1,6 +1,6 @@
-# Project Title
+# amigo
 
-One Paragraph of project description goes here
+A simple dockerized REST API starter for Golang.
 
 ## Getting Started
 
@@ -8,13 +8,20 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+- A working Golang installation. Refer: [Getting started with Golang](https://golang.org/doc/install)
+- [Dep](https://golang.github.io/dep/) - Go dependency management tool.
 
-```
-Give examples
-```
+### Development
 
-### Installing
+1. Clone the repository locally into `$HOME/go/src/github.com/socialcopsdev/`.
+2. Ensure dependencies: `dep ensure -v`
+3. Run using `go run main.go`.
+
+> To add new dependencies: `dep ensure -v -add "<path_to_dependency>"`
+
+> To update dependencies: `dep ensure -update -v`
+
+<!-- ### Installing
 
 A step by step series of examples that tell you have to get a development env running
 
@@ -54,26 +61,27 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Add additional notes about how to deploy this on a live system -->
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Echo](https://echo.labstack.com/) - The web framework used
+* [dep](https://maven.apache.org/) - Dependency management for Go
+* [viper](https://github.com/spf13/viper) - Configuration management
 
-## Contributing
+<!-- ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). -->
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* [Aayush Sarva](https://github.com/checkaayush)
 
+<!--
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
@@ -84,4 +92,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Hat tip to anyone who's code was used
 * Inspiration
-* etc
+* etc -->
