@@ -7,7 +7,7 @@
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-# WORKDIR $GOPATH/src/github.com/socialcopsdev/amigo
+# WORKDIR $GOPATH/src/github.com/checkaayush/amigo
 # COPY Gopkg.toml Gopkg.lock ./
 
 # # Ensure dependencies
@@ -35,7 +35,7 @@
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-# WORKDIR $GOPATH/src/github.com/socialcopsdev/amigo
+# WORKDIR $GOPATH/src/github.com/checkaayush/amigo
 # COPY Gopkg.toml Gopkg.lock ./
 
 # # Ensure dependencies
@@ -71,7 +71,7 @@ FROM golang:1.11
 # Download and install the latest release of dep
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-WORKDIR $GOPATH/src/github.com/socialcopsdev/amigo
+WORKDIR $GOPATH/src/github.com/checkaayush/amigo
 COPY Gopkg.toml Gopkg.lock ./
 
 # Ensure dependencies
@@ -97,7 +97,7 @@ CMD [ "/app" ]
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-# WORKDIR $GOPATH/src/github.com/socialcopsdev/amigo
+# WORKDIR $GOPATH/src/github.com/checkaayush/amigo
 # COPY Gopkg.toml Gopkg.lock ./
 
 # # Ensure dependencies
