@@ -15,18 +15,14 @@ Personal experimental playground to explore the Golang ecosystem.
 
 ### Prerequisites
 
-- A working Golang installation. Refer: [Getting started with Golang](https://golang.org/doc/install)
-- [Dep](https://golang.github.io/dep/) - Go dependency management tool.
+- A working Golang (>=1.11) installation. Refer: [Getting started with Golang](https://golang.org/doc/install)
 
 ### Development
 
-1. Clone the repository locally into `$HOME/go/src/github.com/socialcopsdev/`.
-2. Ensure dependencies: `dep ensure -v`
-3. Run using `go run main.go`.
+1. Clone the repository locally and change into the directory.
+2. Run using `go run main.go`.
 
-> To add new dependencies: `dep ensure -v -add "<path_to_dependency>"`
-
-> To update dependencies: `dep ensure -update -v`
+> To update all direct and indirect dependencies to latest minor or patch upgrades: `go get -u`
 
 <!-- ### Installing
 
@@ -73,7 +69,6 @@ Add additional notes about how to deploy this on a live system -->
 ## Built With
 
 * [Echo](https://echo.labstack.com/) - The web framework used
-* [dep](https://maven.apache.org/) - Dependency management for Go
 * [viper](https://github.com/spf13/viper) - Configuration management
 
 <!-- ## Contributing
