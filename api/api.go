@@ -1,14 +1,16 @@
-package main
+package api
 
 import (
 	"net/http"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"github.com/spf13/viper"
+
+	"github.com/checkaayush/amigo/pkg/config"
 )
 
-func main() {
+// Start starts the API server
+func Start(cfg *config.Configuration) error {
 	// Echo instance
 	e := echo.New()
 
@@ -19,13 +21,12 @@ func main() {
 	// Routes
 	e.GET("/", hello)
 
-	// Load configuration
-	viper.SetDefault("PORT", 5000)
-	viper.AutomaticEnv()
-
 	// Start server
-	address := ":" + viper.GetString("PORT")
-	e.Logger.Fatal(e.Start(address))
+	address := ":" + cfg.Server.Port
+	if err := e.Start(address); err != nil {
+		return err
+	}
+	return nil
 }
 
 // Handler
