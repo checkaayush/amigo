@@ -26,8 +26,8 @@ docker-compose up
 
 ## Built With
 
-* [Echo](https://echo.labstack.com/) - The web framework used
-* [Viper](https://github.com/spf13/viper) - Configuration management
+* [Echo](https://echo.labstack.com/) - Web framework
+* [Envconfig](https://github.com/kelseyhightower/envconfig) - Configuration management
 * [Realize](https://github.com/oxequa/realize) - Live reloading
 
 ## Authors

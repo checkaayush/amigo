@@ -2,7 +2,7 @@
 ## Multi Stage Docker build with Go Modules (Recommended)
 #########################################################
 
-FROM golang:1.11 AS builder
+FROM golang:1.12.4 AS builder
 
 ENV GO111MODULE=on
 
@@ -28,7 +28,7 @@ CMD [ "./app" ]
 ## Single Stage Docker build with Go Modules
 #############################################
 
-# FROM golang:1.11
+# FROM golang:1.12.4
 
 # ENV GO111MODULE=on
 
@@ -51,7 +51,7 @@ CMD [ "./app" ]
 ## Multi Stage Docker build with Dep
 #########################################
 
-# FROM golang:1.11 AS builder
+# FROM golang:1.12.4 AS builder
 
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -79,7 +79,7 @@ CMD [ "./app" ]
 ## Refer: https://bit.ly/2oY3pCn
 #####################################################
 
-# FROM golang:1.11 AS builder
+# FROM golang:1.12.4 AS builder
 
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -115,7 +115,7 @@ CMD [ "./app" ]
 ## Single Stage Docker build with Dep
 #####################################
 
-# FROM golang:1.11
+# FROM golang:1.12.4
 
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
@@ -141,7 +141,7 @@ CMD [ "./app" ]
 ## Less secure; not recommended. Refer: https://bit.ly/2oY3pCn
 ######################################################
 
-# FROM golang:1.11
+# FROM golang:1.12.4
 
 # # Download and install the latest release of dep
 # RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
