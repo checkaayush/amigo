@@ -1,4 +1,4 @@
-FROM golang:1.11 AS builder
+FROM golang:1.12.4 AS builder
 
 RUN go get github.com/oxequa/realize
 ENV GO111MODULE=on
