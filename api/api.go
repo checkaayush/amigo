@@ -7,6 +7,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 
 	"github.com/checkaayush/amigo/pkg/config"
+	"github.com/checkaayush/amigo/pkg/mongodb"
 )
 
 // Start starts the API server
@@ -14,24 +15,13 @@ func Start(cfg *config.Configuration) error {
 	// Echo instance
 	e := echo.New()
 
-	// Initialize connection to MongoDB
-	// timeout, err := strconv.Atoi(cfg.MongodbTimeout)
-	// if err != nil {
-	// 	return err
-	// }
+	// Database
+	_, err := mongodb.New(cfg)
+	if err != nil {
+		return err
+	}
 
-	// _, err := mongodb.New(
-	// 	cfg.MongodbHost,
-	// 	cfg.MongodbName,
-	// 	cfg.MongodbUsername,
-	// 	cfg.MongodbPassword,
-	// 	cfg.MongodbTimeout,
-	// )
-	// if err != nil {
-	// 	return err
-	// }
-
-	// Middleware
+	// Middlewares
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
@@ -39,7 +29,7 @@ func Start(cfg *config.Configuration) error {
 	e.GET("/", hello)
 
 	// Start server
-	address := ":" + cfg.ServerPort
+	address := ":" + cfg.Server.Port
 	if err := e.Start(address); err != nil {
 		return err
 	}

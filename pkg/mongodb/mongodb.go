@@ -6,35 +6,37 @@ import (
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+
+	"github.com/checkaayush/amigo/pkg/config"
 )
 
 // New creates new connection to MongoDB
-func New(host string, dbName string, username string, password string, timeout int) (*mongo.Database, error) {
-	cred := options.Credential{
-		AuthSource: dbName,
-		Username:   username,
-		Password:   password,
-	}
-	clientOptions := options.Client()
-	clientOptions.SetAuth(cred)
-	clientOptions.SetDirect(true)
-	clientOptions.SetHosts([]string{host})
-	client, err := mongo.NewClient(clientOptions)
-	if err != nil {
-		return nil, err
-	}
-
-	ctx, cancel := context.WithTimeout(context.Background(), time.Duration(timeout)*time.Second)
+func New(cfg *config.Configuration) (*mongo.Database, error) {
+	timeout := time.Duration(cfg.DB.Timeout) * time.Second
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
-	err = client.Connect(ctx)
+
+	// Configure database client
+	opts := options.Client()
+	opts.SetHosts([]string{cfg.DB.Host})
+	if cfg.DB.Username != "" && cfg.DB.Password != "" {
+		opts.SetAuth(options.Credential{
+			AuthSource: cfg.DB.Name,
+			Username:   cfg.DB.Username,
+			Password:   cfg.DB.Password,
+		})
+	}
+	client, err := mongo.Connect(ctx, opts)
 	if err != nil {
 		return nil, err
 	}
 
+	// Blocks for MongoDB server discovery
 	err = client.Ping(ctx, nil)
 	if err != nil {
 		return nil, err
 	}
-	Database := client.Database(dbName)
-	return Database, nil
+
+	db := client.Database(cfg.DB.Name)
+	return db, nil
 }

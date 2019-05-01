@@ -5,7 +5,7 @@ import (
 	"github.com/checkaayush/amigo/pkg/config"
 )
 
-const AppName = "amigo"
+var AppName = "amigo"
 
 func main() {
 	cfg, err := config.Load(AppName)
