@@ -1,5 +1,8 @@
 version: '3'
 
+volumes:
+  amigo:
+
 services:
 
   api:
@@ -8,6 +11,27 @@ services:
       context: ./
       dockerfile: development.Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - .:/usr/src/app
     ports:
       - 5000:5000
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:3.6.12
+    volumes:
+      - amigo:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --dbpath /data/db
+    logging:
+      driver: none # Disabled logging for MongoDB. Remove this to re-enable.
+    healthcheck:
+      interval: 5s
+      retries: 10
+      # $$ to make docker-compose not treat this as an environment variable
+      # this test for without replsets
+      test: mongo --quiet --eval "print('ok')"

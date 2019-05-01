@@ -14,6 +14,23 @@ func Start(cfg *config.Configuration) error {
 	// Echo instance
 	e := echo.New()
 
+	// Initialize connection to MongoDB
+	// timeout, err := strconv.Atoi(cfg.MongodbTimeout)
+	// if err != nil {
+	// 	return err
+	// }
+
+	// _, err := mongodb.New(
+	// 	cfg.MongodbHost,
+	// 	cfg.MongodbName,
+	// 	cfg.MongodbUsername,
+	// 	cfg.MongodbPassword,
+	// 	cfg.MongodbTimeout,
+	// )
+	// if err != nil {
+	// 	return err
+	// }
+
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
@@ -22,7 +39,7 @@ func Start(cfg *config.Configuration) error {
 	e.GET("/", hello)
 
 	// Start server
-	address := ":" + cfg.Server.Port
+	address := ":" + cfg.ServerPort
 	if err := e.Start(address); err != nil {
 		return err
 	}

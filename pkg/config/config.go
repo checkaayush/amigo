@@ -18,20 +18,30 @@ func Load(appName string) (*Configuration, error) {
 
 // Configuration holds data necessery for configuring application
 type Configuration struct {
-	Server *Server
-	// DB     *Database    `yaml:"database,omitempty"`
+	ServerPort string `split_words:"true" default:"5000"`
+
+	MongodbName     string `split_words:"true" default:"amigo"`
+	MongodbHost     string `split_words:"true" default:"mongodb"`
+	MongodbUsername string `split_words:"true"`
+	MongodbPassword string `split_words:"true"`
+	MongodbTimeout  int    `split_words:"true" default:"60"`
+
+	// Server *Server
+	// DB     *Database
 	// App    *Application `yaml:"application,omitempty"`
 }
 
 // Server holds data necessery for server configuration
-type Server struct {
-	Port string `envconfig:"port" default:"5000"`
-	// Debug bool   `envconfig:"debug,omitempty"`
-}
+// type Server struct {
+// 	Port string `envconfig:"port" default:"5000"`
+// }
 
 // // Database holds data necessery for database configuration
 // type Database struct {
-// 	PSN        string `yaml:"psn,omitempty"`
+// 	Host     string `envconfig:"host" default:"mongodb"`
+// 	Name     string `envconfig:"dbname" default:"amigo"`
+// 	Username string `envconfig:"username,omitempty"`
+// 	Password string `envconfig:"password,omitempty"`
 // }
 
 // // Application holds application configuration details

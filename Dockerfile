@@ -14,7 +14,7 @@ RUN go mod download
 
 # Copy the code from the host and build it
 COPY . /usr/src/app
-RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # Copy binary into second stage and run app
 FROM scratch
@@ -40,7 +40,7 @@ CMD [ "./app" ]
 
 # # Copy the code from the host and build it
 # COPY . /usr/src/app
-# RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # EXPOSE 5000
 # CMD [ "/app" ]
@@ -64,7 +64,7 @@ CMD [ "./app" ]
 
 # # Copy the code from the host and compile it
 # COPY . ./
-# RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # FROM scratch
 # COPY --from=builder /app ./
@@ -101,7 +101,7 @@ CMD [ "./app" ]
 
 # # Copy the code from the host and compile it
 # COPY . ./
-# RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # FROM scratch
 # COPY --from=builder /app ./
@@ -128,7 +128,7 @@ CMD [ "./app" ]
 
 # # Copy the code from the host and compile it
 # COPY . ./
-# RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # EXPOSE 5000
 # CMD [ "/app" ]
@@ -163,7 +163,7 @@ CMD [ "./app" ]
 
 # # Copy the code from the host and compile it
 # COPY . ./
-# RUN CGO_ENABLED=0 GOOS=linux go build -o /app .
+# RUN CGO_ENABLED=0 GOOS=linux go build -o /app ./cmd/api/main.go
 
 # EXPOSE 5000
 # CMD [ "/app" ]

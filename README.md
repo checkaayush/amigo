@@ -14,15 +14,16 @@ Personal experimental playground to explore the Golang ecosystem.
 > Pre-requisites: Install latest stable versions of Docker and Docker Compose.
 
 1. Clone the repository locally.
-2. From repository root, run:
+2. Add .env file in the repository root by modifying the .env.template file as needed.
+3. From repository root, run:
 ```bash
 docker-compose up
 ```
-3. API will be up and running at http://localhost:5000.
+4. API will be up and running at http://localhost:5000.
 
 > Update all direct and indirect dependencies: `go get -u`
 
-> Remove unused or no-longer needed dependencies: `go mod tidy`
+> Remove unused dependencies: `go mod tidy`
 
 ## Built With
 
