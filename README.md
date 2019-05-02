@@ -1,13 +1,23 @@
 <p align="center">
   <img src="https://golangtraining-in-web.appspot.com/img/cowboy-color.png" height="130px"/>
-  <br><br>
 </p>
+<h1 align="center">amigo</h1>
 
-# amigo
+## Introduction
 
-A simple dockerized API starter for Golang.
+A simple dockerized API starter for Golang inspired by [GORSK](https://github.com/ribice/gorsk).
 
-Personal experimental playground to explore the Golang ecosystem.
+Shout-out to [ribice](https://github.com/ribice) for the awesome work on GORSK v2. :thumbsup:
+
+### What's different from GORSK?
+
+* Uses docker and docker compose
+* Has live code reloading for faster development
+* Uses Go modules with Go 1.12+ and semantic versioning
+* Uses Labstack Echo v4
+* Uses MongoDB as the primary datastore along with the official MongoDB Go driver
+* Uses environment variables for configuration
+* Minor changes in repository structure
 
 ## Development
 
@@ -21,20 +31,23 @@ docker-compose up
 ```
 4. API will be up and running at http://localhost:5000.
 
-> Update all direct and indirect dependencies: `go get -u`
+### Dependency Management
 
-> Remove unused dependencies: `go mod tidy`
+Amigo uses Go modules with semantic versioning and is tested with Go 1.12+.
 
-## Built With
+* Update all direct and indirect dependencies using `go get -u`.
+* Remove unused dependencies using `go mod tidy`.
+* Add a new dependency using `go get <path-to-dependency>`.
 
-* [Echo](https://echo.labstack.com/) - Web framework
-* [Envconfig](https://github.com/kelseyhightower/envconfig) - Configuration management
-* [Realize](https://github.com/oxequa/realize) - Live reloading
+#### Dependencies
 
-## Authors
-
-* [Aayush Sarva](https://github.com/checkaayush)
+* [echo](https://echo.labstack.com/) - Web framework
+* [envconfig](https://github.com/kelseyhightower/envconfig) - Configuration management
+* [realize](https://github.com/oxequa/realize) - Live reloading
+* [mongo-go-driver](https://github.com/mongodb/mongo-go-driver) - MongoDB driver
+* [testify](https://github.com/stretchr/testify) - Assertions library
 
 ## References
 
 * [Go Modules](https://github.com/golang/go/wiki/Modules)
+* [Using MongoDB Go Driver](https://vkt.sh/go-mongodb-driver-cookbook/)

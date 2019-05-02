@@ -22,8 +22,7 @@ func Start(cfg *config.Configuration) error {
 	}
 
 	// Middlewares
-	e.Use(middleware.Logger())
-	e.Use(middleware.Recover())
+	initializeMiddlewares(e)
 
 	// Routes
 	e.GET("/", hello)
@@ -34,6 +33,12 @@ func Start(cfg *config.Configuration) error {
 		return err
 	}
 	return nil
+}
+
+// initializeMiddlewares initializes built-in and custom middlewares
+func initializeMiddlewares(e *echo.Echo) {
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 }
 
 // Handler
