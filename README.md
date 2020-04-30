@@ -1,7 +1,13 @@
-<p align="center">
-  <img src="https://golangtraining-in-web.appspot.com/img/cowboy-color.png" height="130px"/>
-</p>
-<h1 align="center">amigo</h1>
+<div align="center">
+  <p>
+    <img src="https://golangtraining-in-web.appspot.com/img/cowboy-color.png" height="130px"/>
+    <img>
+  </p>
+  <h1>amigo</h1>
+  <a href="https://goreportcard.com/report/github.com/checkaayush/amigo">
+    <img src="https://goreportcard.com/badge/github.com/checkaayush/amigo"/>
+  </a>
+</div>
 
 ## Introduction
 
